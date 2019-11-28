@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "world-bank-e2e": {
+      "tags": []
+    },
+    "world-bank": {
+      "tags": []
+    }
+  }
 }
