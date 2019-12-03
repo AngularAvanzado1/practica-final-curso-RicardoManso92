@@ -1,5 +1,16 @@
-<ul>
-  <li>
-    HOLA
-  </li>
-</ul>>
+<div class="card-columns">
+  <div *ngFor="let pais of listadoPaises" class="card">
+    <div class="card-body">
+      <h2 class="card-title">
+
+        {{ pais.name }}
+
+      </h2>
+      <p class="card-text">
+
+        {{ pais.code }} - {{ pais.iso2code }}
+
+      </p>
+    </div>
+  </div>
+</div>

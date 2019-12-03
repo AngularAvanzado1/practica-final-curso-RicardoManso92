@@ -8,9 +8,15 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class HomeComponent {
 
+  listadoPaises: any[] = [];
+
   constructor( private paises: PaisesService ) {
 
-    this.paises.getPaises();
+    this.paises.getPaises()
+      .subscribe((resp: any )=>{
+        console.log(resp[1]);
+        this.listadoPaises = resp[1];
+      });
 
   }
 }

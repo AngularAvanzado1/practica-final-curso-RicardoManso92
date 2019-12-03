@@ -16,10 +16,11 @@ export class PaisesService {
     //  'Authorization': 'Token'
     //});
 
-    this.http.get('http://api.worldbank.org/v2/region/?format=json')
-        .subscribe( (resp: any) => {
+   return this.http.get('http://api.worldbank.org/v2/region/?format=json');
+  //      .subscribe( (resp: any) => {
         //this.paises = resp;
-        console.log(resp);
-      });
+  //      console.log(resp);
+   //     console.log(resp[1]);
+   //   });
   }
 }
