@@ -7,8 +7,8 @@ import { RegionComponent } from './components/region/region.component';
 export const ROUTES: Routes =[
   {path: 'home', component: HomeComponent },
   {path: 'search', component: SearchComponent },
-  {path: 'pais', component: PaisComponent },
-  {path: 'region', component: RegionComponent },
+  {path: 'pais/:id', component: PaisComponent },
+  {path: 'region/:code', component: RegionComponent },
   {path: '', pathMatch: 'full', redirectTo: 'home' },
   {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ]

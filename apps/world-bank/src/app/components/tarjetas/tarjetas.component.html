@@ -1,0 +1,8 @@
+<div class="card-columns">
+  <div (click)="verRegion(item)" *ngFor="let item of items" class="card puntero">
+    <div class="card-body">
+      <h3 class="card-title">{{ item.name }}</h3>
+      <p class="card-text">{{ item.id }}</p>
+    </div>
+  </div>
+</div>

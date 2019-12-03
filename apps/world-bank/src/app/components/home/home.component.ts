@@ -10,9 +10,9 @@ export class HomeComponent {
 
   listadoRegionesGeograficas: any[] = [];
 
-  constructor( private paises: PaisesService ) {
+  constructor( private regiones: PaisesService ) {
 
-    this.paises.getRegionGeografica()
+    this.regiones.getRegionGeografica()
       .subscribe((resp: any )=>{
         console.log(resp);
         this.listadoRegionesGeograficas = resp[1];

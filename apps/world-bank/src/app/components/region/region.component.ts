@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
@@ -7,13 +8,19 @@ import { PaisesService } from '../../services/paises.service';
   styles: []
 })
 export class RegionComponent {
-  listadoRegionesContinentales: any[] = [];
+  constructor(private router: ActivatedRoute,
+              private region: PaisesService) {
 
-  constructor(private regiones: PaisesService ) {
-    this.regiones.getRegionContinental()
-    .subscribe((resp: any )=>{
-      console.log(resp[1]);
-      this.listadoRegionesContinentales = resp[1];
+    this.router.params.subscribe( params => {
+      this.getRegion( params['code'] );
     });
+   }
+
+   getRegion( code: string){
+
+    this.region.getRegionContinental(code)
+      .subscribe(region=>{
+        console.log(region);
+      });
    }
 }
