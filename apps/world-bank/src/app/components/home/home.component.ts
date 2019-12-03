@@ -8,14 +8,14 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class HomeComponent {
 
-  listadoPaises: any[] = [];
+  listadoRegionesGeograficas: any[] = [];
 
   constructor( private paises: PaisesService ) {
 
-    this.paises.getPaises()
+    this.paises.getRegionGeografica()
       .subscribe((resp: any )=>{
-        console.log(resp[1]);
-        this.listadoPaises = resp[1];
+        console.log(resp);
+        this.listadoRegionesGeograficas = resp[1];
       });
 
   }

@@ -11,9 +11,10 @@ import { PaisComponent } from './components/pais/pais.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ROUTES } from './app.routes';
 import { PaisesService } from './services/paises.service';
+import { RegionComponent } from './components/region/region.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SearchComponent, PaisComponent, NavbarComponent],
+  declarations: [AppComponent, HomeComponent, SearchComponent, PaisComponent, NavbarComponent, RegionComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +10,16 @@ export class PaisesService {
     console.log('Paises service listo')
   }
 
-  getPaises(){
-
-    //const headers = new HttpHeaders({
-    //  'Authorization': 'Token'
-    //});
-
-   return this.http.get('http://api.worldbank.org/v2/region/?format=json');
-  //      .subscribe( (resp: any) => {
-        //this.paises = resp;
-  //      console.log(resp);
-   //     console.log(resp[1]);
-   //   });
+  getRegionGeografica(){
+    return this.http.get('http://api.worldbank.org/v2/region/?format=json');
   }
+
+  getRegionContinental(){
+    return this.http.get('http://api.worldbank.org/v2/region/ECS/country?per_page=1000&format=json');
+  }
+
+  getPaises(){
+    return this.http.get('http://api.worldbank.org/V2/country/ESP?format=json');
+   }
+
 }
