@@ -15,7 +15,7 @@ export class PaisesService {
   }
 
   getRegionContinental( code: string){
-    return this.http.get(`http://api.worldbank.org/v2/region/ECS/country/${ code }`);
+    return this.http.get(`http://api.worldbank.org/v2/region/${ code }`);
   }
 
   getPaises(){
