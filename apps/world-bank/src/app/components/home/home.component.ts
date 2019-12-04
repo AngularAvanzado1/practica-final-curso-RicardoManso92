@@ -12,7 +12,7 @@ export class HomeComponent {
 
   constructor( private regiones: PaisesService ) {
 
-    this.regiones.getRegionGeografica()
+    this.regiones.getRegionesGeograficas()
       .subscribe((resp: any )=>{
         console.log(resp);
         this.listadoRegionesGeograficas = resp[1];

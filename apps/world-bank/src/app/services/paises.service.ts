@@ -10,12 +10,16 @@ export class PaisesService {
     console.log('Paises service listo')
   }
 
-  getRegionGeografica(){
+  getRegionesGeograficas(){
     return this.http.get('http://api.worldbank.org/v2/region/?format=json');
   }
 
   getRegionContinental( code: string){
-    return this.http.get(`http://api.worldbank.org/v2/region/${ code }`);
+    return this.http.get(`http://api.worldbank.org/v2/region/${ code }?format=json`);
+  }
+
+  getPaisesRegionContinental( code: string){
+    return this.http.get(`http://api.worldbank.org/v2/region/${ code }/country?format=json`);
   }
 
   getPaises(){
