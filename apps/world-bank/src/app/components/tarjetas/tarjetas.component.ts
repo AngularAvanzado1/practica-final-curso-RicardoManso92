@@ -8,21 +8,11 @@ import { Router } from '@angular/router';
 })
 export class TarjetasComponent {
 
-
   @Input() items: any[] = [];
 
-  constructor( private router: Router) {
-
-
-  }
+  constructor( private router: Router) {}
 
   verRegion(item:any){
-
-    let regionCode;
-
-    regionCode = item.code;
-    console.log(item.code);
-
-    this.router.navigate(['/region', regionCode]);
+    this.router.navigate(['/region', item.code]);
   }
 }

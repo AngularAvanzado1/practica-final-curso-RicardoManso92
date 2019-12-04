@@ -21,11 +21,16 @@ export class RegionComponent {
     });
    }
 
+   verPais( pais : any ){
+    console.log(pais);
+    this.region.getPais(pais.id);
+  }
+
   getRegion( code: string){
     this.region.getRegionContinental(code)
       .subscribe(region => {
-        this.datosRegion = region[0];
-        console.log("REGION " + region);
+        console.log(region[1]);
+        this.datosRegion = region[1];
       });
   }
 
@@ -33,7 +38,6 @@ export class RegionComponent {
     this.paisesRegion.getPaisesRegionContinental(code)
     .subscribe(paises => {
       this.listadoPaises = paises[1];
-      console.log(paises);
   });
   }
 }

@@ -6,24 +6,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PaisesService {
 
-  constructor( private http: HttpClient) {
-    console.log('Paises service listo')
-  }
+  constructor( private http: HttpClient) {}
 
   getRegionesGeograficas(){
     return this.http.get('http://api.worldbank.org/v2/region/?format=json');
   }
 
-  getRegionContinental( code: string){
+  getRegionContinental( code: string ){
     return this.http.get(`http://api.worldbank.org/v2/region/${ code }?format=json`);
   }
 
-  getPaisesRegionContinental( code: string){
+  getPaisesRegionContinental( code : string ){
     return this.http.get(`http://api.worldbank.org/v2/region/${ code }/country?format=json`);
   }
 
-  getPaises(){
-    return this.http.get('http://api.worldbank.org/V2/country/ESP?format=json');
+  getPais( id : string ){
+    return this.http.get(`http://api.worldbank.org/V2/country/${ id }?format=json`);
    }
 
 }

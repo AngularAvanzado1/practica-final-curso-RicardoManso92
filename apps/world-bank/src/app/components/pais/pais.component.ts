@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
@@ -8,14 +9,15 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class PaisComponent {
 
-  listadoPaises: any[] = [];
+  @Input() idPais : string;
+  datosPais : any;
 
-  constructor(private regiones: PaisesService ) {
-    this.regiones.getPaises()
-    .subscribe((resp: any )=>{
-      console.log(resp[1]);
-      this.listadoPaises = resp[1];
-    });
-   }
+  constructor(private regiones: PaisesService,
+    private router : ActivatedRoute ) {
+      this.router.params.subscribe( params => {
+        console.log(params);
+       // this.regiones.getPaises(this.idPais);
+        });
+      }
 
 }

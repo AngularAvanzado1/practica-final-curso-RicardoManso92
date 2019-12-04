@@ -11,12 +11,9 @@ export class HomeComponent {
   listadoRegionesGeograficas: any[] = [];
 
   constructor( private regiones: PaisesService ) {
-
     this.regiones.getRegionesGeograficas()
       .subscribe((resp: any )=>{
-        console.log(resp);
         this.listadoRegionesGeograficas = resp[1];
       });
-
   }
 }

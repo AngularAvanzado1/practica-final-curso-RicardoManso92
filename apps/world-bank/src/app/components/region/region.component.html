@@ -1,3 +1,14 @@
-<div *ngFor="let pais of listadoPaises" class="card" style="width: 18rem;">
-  <h3>{{ pais.name }}</h3>
+<div *ngFor="let region of datosRegion">
+  <h1>Region continental: {{ region.name }}</h1>
+  <h5>Código: {{ region.code }}</h5>
+  <h5>Id: {{ region.id }}</h5>
+  <h5>Código ISO2: {{ region.iso2code }}</h5>
+  <h5>Nombre: {{ region.name }}</h5>
+  <div class="card-columns">
+      <div (click)="verPais(pais)" *ngFor="let pais of listadoPaises" class="card puntero">
+        <div class="card-body">
+          <h5>{{ pais.name }}</h5>
+        </div>
+      </div>
+    </div>
 </div>
