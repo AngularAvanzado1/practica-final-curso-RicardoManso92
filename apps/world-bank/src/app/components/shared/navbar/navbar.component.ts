@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ab-WorldBank-navbar',
+  selector: 'ab-world-bank-navbar',
   templateUrl: './navbar.component.html',
   styles: []
 })

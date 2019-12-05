@@ -1,13 +1,13 @@
 {
   "name": "practica-final",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "nx": "nx",
     "start:world-bank": "ng serve world-bank --port=4201 -o",
     "build:world-bank": "ng build world-bank --prod",
-    "test:world-bank": "ng test world-bank",
+    "test:world-bank": "ng test world-bank --watch --verbose",
     "start:api": "ng serve api",
     "build:api": "ng build api --prod",
     "test:api": "ng test api",

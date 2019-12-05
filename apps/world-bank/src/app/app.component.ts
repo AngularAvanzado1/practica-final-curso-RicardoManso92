@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ab-WorldBank-root',
+  selector: 'ab-world-bank-root',
   templateUrl: './app.component.html',
   styles: []
 })
 export class AppComponent {
-  title = 'world-bank';
+  title = 'World Bank';
 }
