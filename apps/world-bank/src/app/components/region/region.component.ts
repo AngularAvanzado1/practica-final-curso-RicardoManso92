@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
@@ -10,11 +10,12 @@ import { PaisesService } from '../../services/paises.service';
 export class RegionComponent {
   datosRegion : any[] = [];
   listadoPaises : any[] = [];
-  constructor(private router: ActivatedRoute,
+  constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
               private region: PaisesService,
               private paisesRegion: PaisesService) {
 
-    this.router.params.subscribe( params => {
+    this.activatedRoute.params.subscribe( params => {
 
       this.getRegion( params['code'] );
       this.getPaisesRegion( params['code'] );
@@ -22,8 +23,8 @@ export class RegionComponent {
    }
 
    verPais( pais : any ){
-    console.log(pais);
-    this.region.getPais(pais.id);
+    console.log(pais.id);
+    this.router.navigate(['pais', pais.id]);
   }
 
   getRegion( code: string){

@@ -9,15 +9,18 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class PaisComponent {
 
-  @Input() idPais : string;
   datosPais : any;
 
-  constructor(private regiones: PaisesService,
+  constructor(private pais: PaisesService,
     private router : ActivatedRoute ) {
       this.router.params.subscribe( params => {
-        console.log(params);
-       // this.regiones.getPaises(this.idPais);
+         this.getPais(params['id']);
         });
       }
-
+    getPais( code: string){
+      this.pais.getPais(code)
+        .subscribe(respDatosPais => {
+          this.datosPais = respDatosPais[1];
+        });
+    }
 }

@@ -1,5 +1,16 @@
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
-    <li *ngFor="let pais of listadoPaises" class="list-group-item"> {{ pais.name }} </li>
+    <li *ngFor="let pais of datosPais" class="list-group-item">
+        <div>
+          <h1>País: {{ pais.name }}</h1>
+          <h5>Capital: {{ pais.capitalCity }}</h5>
+          <h5>ID: {{ pais.id }}</h5>
+          <h5>ID ISO2: {{ pais.iso2code }}</h5>
+          <h5>Latitud: {{ pais.latitude }}</h5>
+          <h5>Longitud: {{ pais.longitude }}</h5>
+          <h5>Region: {{ pais.region.value }}</h5>
+        </div>
+    </li>
   </ul>
 </div>
+
