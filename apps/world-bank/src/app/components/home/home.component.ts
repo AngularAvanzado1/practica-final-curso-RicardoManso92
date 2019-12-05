@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
-  selector: 'ab-WorldBank-home',
+  selector: 'ab-world-bank-home',
   templateUrl: './home.component.html',
   styles: []
 })
@@ -25,7 +25,7 @@ export class HomeComponent {
   filtrarRegiones(){
     this.listadoFiltradoId = [];
     this.listadoRegionesGeograficas.forEach(element => {
-      if (element.id != ""){
+      if (element.id !== ""){
         this.listadoFiltradoId.push(element);
       }
     });

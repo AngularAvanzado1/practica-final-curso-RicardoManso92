@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
-  selector: 'ab-WorldBank-region',
+  selector: 'ab-world-bank-region',
   templateUrl: './region.component.html',
   styles: []
 })
@@ -29,7 +29,6 @@ export class RegionComponent {
   getRegion( code: string){
     this.region.getRegionContinental(code)
       .subscribe(region => {
-        console.log(region[1]);
         this.datosRegion = region[1];
       });
   }
