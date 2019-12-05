@@ -9,7 +9,7 @@ export class PaisesService {
   constructor( private http: HttpClient) {}
 
   getRegionesGeograficas(){
-    return this.http.get('http://api.worldbank.org/v2/region/?format=json');
+    return this.http.get('http://api.worldbank.org/v2/region?format=json');
   }
 
   getRegionContinental( code: string ){

@@ -21,7 +21,6 @@ export class PaisComponent {
     getPais( code: string){
       this.pais.getPais(code)
         .subscribe(respDatosPais => {
-          console.log(respDatosPais);
           this.datosPais = respDatosPais[1];
         });
     }
