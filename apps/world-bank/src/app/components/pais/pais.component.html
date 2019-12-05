@@ -8,7 +8,7 @@
           <h5>ID ISO2: {{ pais.iso2code }}</h5>
           <h5>Latitud: {{ pais.latitude }}</h5>
           <h5>Longitud: {{ pais.longitude }}</h5>
-          <h5>Region: {{ pais.region.value }}</h5>
+          <h5 (click)="verRegion(pais.region.id)" class="card puntero">Region: {{ pais.region.value }}</h5>
         </div>
     </li>
   </ul>

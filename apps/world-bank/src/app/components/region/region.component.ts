@@ -23,7 +23,6 @@ export class RegionComponent {
    }
 
    verPais( pais : any ){
-    console.log(pais.id);
     this.router.navigate(['pais', pais.id]);
   }
 
