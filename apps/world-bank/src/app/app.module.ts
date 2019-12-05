@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { SearchComponent } from './components/search/search.component';
 import { PaisComponent } from './components/pais/pais.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ROUTES } from './app.routes';
@@ -18,7 +17,6 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent,
     PaisComponent,
     NavbarComponent,
     RegionComponent,
