@@ -14,12 +14,14 @@ import { RegionComponent } from './components/region/region.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromApp from './+state/app.reducer';
-import { AppEffects } from './+state/app.effects';
 import { NxModule } from '@nrwl/angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { StoreRouterConnectingModule, RouterState, routerReducer } from '@ngrx/router-store';
+import {
+  StoreRouterConnectingModule,
+  routerReducer,
+  RouterState
+} from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -47,10 +49,10 @@ import { StoreRouterConnectingModule, RouterState, routerReducer } from '@ngrx/r
         }
       }
     ),
-    EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal }),
-    StoreModule.forFeature(fromApp.APP_FEATURE_KEY, fromApp.reducer)
+    EffectsModule.forRoot([]),
+    //conector para el router de angular para subscribirse a los eventos de navegacion
+    StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal })
   ],
   providers: [PaisesService],
   bootstrap: [AppComponent]
