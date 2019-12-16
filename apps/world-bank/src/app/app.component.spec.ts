@@ -25,11 +25,11 @@ describe('GIVEN: an AppComponent declared in AppModule', () => {
     expect(app.title).toEqual('shop');
     });
 
-    it(`THEN: should render 'Hello world' in a H1 tag`, () => {
+    it(`THEN: should render 'Regiones Geográficas' in a H1 tag`, () => {
       const fixture = TestBed.createComponent(AppComponent);
       fixture.detectChanges();
       const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Hello world');
+    expect(compiled.querySelector('h1').textContent).toContain('Regiones Geográficas');
     });
   });
 });
