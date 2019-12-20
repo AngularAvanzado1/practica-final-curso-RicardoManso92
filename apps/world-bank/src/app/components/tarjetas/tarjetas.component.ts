@@ -14,7 +14,6 @@ export class TarjetasComponent {
   constructor( private router: Router) {}
 
   verRegion(reg:Region){
-    console.log("Redirigiendo..." + reg.Id);
-    this.router.navigate(['/region', reg.Id]);
+    this.router.navigate(['/region', reg.Codigo]);
   }
 }
