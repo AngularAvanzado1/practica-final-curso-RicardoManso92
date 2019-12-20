@@ -1,7 +1,8 @@
 <div class="card-columns">
-  <div (click)="verRegion(item)" *ngFor="let item of items" class="card puntero">
+  <div (click)="verRegion(reg)" *ngFor="let reg of Regiones" class="card puntero">
     <div class="card-body">
-      <h3 class="card-title">{{ item.name }}</h3>
+      <h3 class="card-title">{{ reg.Nombre }}</h3>
     </div>
   </div>
 </div>
+

@@ -25,9 +25,7 @@
               "apps/world-bank/src/favicon.ico",
               "apps/world-bank/src/assets"
             ],
-            "styles": [
-              "apps/world-bank/src/styles.css"
-            ],
+            "styles": ["apps/world-bank/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -86,10 +84,7 @@
               "apps/world-bank/tsconfig.app.json",
               "apps/world-bank/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/world-bank/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/world-bank/**"]
           }
         },
         "test": {
@@ -123,13 +118,33 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+            "tsConfig": ["apps/world-bank-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/world-bank-e2e/**"]
+          }
+        }
+      }
+    },
+    "rx-store": {
+      "root": "libs/rx-store",
+      "sourceRoot": "libs/rx-store/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
             "tsConfig": [
-              "apps/world-bank-e2e/tsconfig.e2e.json"
+              "libs/rx-store/tsconfig.lib.json",
+              "libs/rx-store/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/world-bank-e2e/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/rx-store/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rx-store/jest.config.js",
+            "tsConfig": "libs/rx-store/tsconfig.spec.json"
           }
         }
       }

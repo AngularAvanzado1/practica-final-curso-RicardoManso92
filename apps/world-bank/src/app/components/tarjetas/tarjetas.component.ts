@@ -1,18 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Region } from '../../Model/region';
 
 @Component({
-  selector: 'ab-WorldBank-tarjetas',
+  selector: 'ab-world-bank-tarjetas',
   templateUrl: './tarjetas.component.html',
   styles: []
 })
 export class TarjetasComponent {
 
-  @Input() items: any[] = [];
+  @Input() Regiones: Region[];
 
   constructor( private router: Router) {}
 
-  verRegion(item:any){
-    this.router.navigate(['/region', item.code]);
+  verRegion(reg:Region){
+    console.log("Redirigiendo..." + reg.Id);
+    this.router.navigate(['/region', reg.Id]);
   }
 }

@@ -1,34 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { PaisesService } from '../../services/paises.service';
+import { Region } from '../../Model/region'
+import { map } from 'rxjs/operators'
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'ab-world-bank-home',
   templateUrl: './home.component.html',
-  styles: []
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
 
+  public titulo: string;
   listadoFiltradoId: any[] = [];
-  listadoRegionesGeograficas: any[] = [];
+  listadoRegionesGeograficas: Region[] = [];
+  listado: Region[];
+  banderaFiltrado: boolean;
 
-  constructor( private regiones: PaisesService ) {
+  constructor( private regiones: PaisesService, private cdr: ChangeDetectorRef ) {
+    this.titulo = "World Bank";
     this.leerRegiones();
   }
 
   leerRegiones(){
     this.regiones.getRegionesGeograficas()
-      .subscribe((resp: any )=>{
-        this.listadoRegionesGeograficas = resp[1];
-      });
+    .pipe(
+      map(r => r[1].map(i => {
+        return {
+          Id: i.id,
+          Codigo: i.code,
+          CodigoISO2: i.iso2code,
+          Nombre: i.name
+        }
+      }))
+    )
+    .subscribe((resp: Region[] )=>{
+      this.listado = resp;
+      this.listadoRegionesGeograficas = this.listado;
+      this.banderaFiltrado = false;
+      this.cdr.markForCheck();
+    });
   }
 
   filtrarRegiones(){
-    this.listadoFiltradoId = [];
-    this.listadoRegionesGeograficas.forEach(element => {
-      if (element.id !== ""){
-        this.listadoFiltradoId.push(element);
-      }
-    });
-    this.listadoRegionesGeograficas = this.listadoFiltradoId;
+    if (this.banderaFiltrado == true)
+      this.leerRegiones();
+    else
+    this.listadoRegionesGeograficas = this.listado.filter(r => r.Id !== '');
+    this.banderaFiltrado = true;
+    this.cdr.markForCheck();
   }
 }

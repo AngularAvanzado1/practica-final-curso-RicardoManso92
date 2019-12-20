@@ -16,8 +16,8 @@ export class PaisComponent {
     private activatedRouter : ActivatedRoute ) {
       this.activatedRouter.params.subscribe( params => {
          this.getPais(params['id']);
-        });
-      }
+      });
+    }
     getPais( code: string){
       this.pais.getPais(code)
         .subscribe(respDatosPais => {

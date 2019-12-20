@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
 
@@ -8,6 +8,7 @@ import { PaisesService } from '../../services/paises.service';
   styles: []
 })
 export class RegionComponent {
+
   datosRegion : any[] = [];
   listadoPaises : any[] = [];
   constructor(private activatedRoute: ActivatedRoute,
