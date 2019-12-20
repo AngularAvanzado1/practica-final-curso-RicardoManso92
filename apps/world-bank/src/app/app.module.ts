@@ -22,6 +22,7 @@ import {
   routerReducer,
   RouterState
 } from '@ngrx/router-store';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([]),
     //conector para el router de angular para subscribirse a los eventos de navegacion
-    StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal })
+    StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [PaisesService],
   bootstrap: [AppComponent]
