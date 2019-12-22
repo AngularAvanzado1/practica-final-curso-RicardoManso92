@@ -1,6 +1,6 @@
 {
   "name": "practica-final",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -42,7 +42,7 @@
     "@angular/platform-browser-dynamic": "^8.2.0",
     "@angular/pwa": "^0.803.21",
     "@angular/router": "^8.2.0",
-    "@angular/service-worker": "^8.2.0",
+    "@angular/service-worker": "^8.2.14",
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/platform-express": "^6.8.3",
