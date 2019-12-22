@@ -23,6 +23,8 @@ import {
   RouterState
 } from '@ngrx/router-store';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import * as fromStore from './components/pais/store/store.reducer';
+import { StoreEffects } from './components/pais/store/store.effects';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     EffectsModule.forRoot([]),
     //conector para el router de angular para subscribirse a los eventos de navegacion
     StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    StoreModule.forFeature(fromStore.paisFeature, fromStore.reducer),
+    EffectsModule.forFeature([StoreEffects])
   ],
   providers: [PaisesService],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
 import { Component, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
+import { Store } from '@ngrx/store';
+import { leerPaises } from '../pais/store/store.actions';
+import { selectPaises} from '../pais/store/store.selectors';
 
 @Component({
   selector: 'ab-world-bank-region',
@@ -14,13 +17,18 @@ export class RegionComponent {
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private region: PaisesService,
-              private paisesRegion: PaisesService) {
+              private paisesRegion: PaisesService,
+              private store: Store<any>) {
 
     this.activatedRoute.params.subscribe( params => {
 
       this.getRegion( params['code'] );
       this.getPaisesRegion( params['code'] );
     });
+
+    this.store.select(selectPaises).subscribe(res=>{
+      this.listadoPaises = res.paises
+    })
    }
 
    verPais( pais : any ){
@@ -35,9 +43,8 @@ export class RegionComponent {
   }
 
   getPaisesRegion( code : string){
-    this.paisesRegion.getPaisesRegionContinental(code)
-    .subscribe(paises => {
-      this.listadoPaises = paises[1];
-  });
+    this.store.dispatch(leerPaises({
+      data: code
+    }));
   }
 }

@@ -7,7 +7,7 @@ describe('world-bank', () => {
       getGreeting().contains('Regiones Geográficas');
     });
     it('THEN: should display div regions', () => {
-      getNumeroRegiones().should('have.length', 1)
+      getNumeroRegiones().should('have.length', 48)
     });
   });
 });
